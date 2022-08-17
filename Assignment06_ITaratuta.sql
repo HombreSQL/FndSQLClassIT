@@ -488,7 +488,7 @@ go
 --		,[InventoryDate]
 --		,[Count]
 --	,e1.[EmployeeID]
---		,[Employee] = e1.[EmployeeFirstName] + ' ' + e1.[EmployeeLastName] -- no need to concatinate since the columns come from a view
+--		,[Employee] = e1.[EmployeeFirstName] + ' ' + e1.[EmployeeLastName]
 --		,[Manager] = m1.[EmployeeFirstName] + ' ' + m1.[EmployeeLastName]
 --	From [dbo].[Products] as p1
 --	Inner Join [dbo].[Categories] as c1
@@ -515,16 +515,16 @@ As
 		,[InventoryDate]
 		,[Count]
 	,e1.[EmployeeID]
-		,[Employee]
-		,[Manager]
-	From [dbo].[Products] as p1
-	Inner Join [dbo].[Inventories] as i1
+		,[Employee] = e1.[EmployeeFirstName] + ' ' + e1.[EmployeeLastName]
+		,[Manager] = m1.[EmployeeFirstName] + ' ' + m1.[EmployeeLastName]
+	From vProducts as p1
+	Inner Join vInventories as i1
 		On p1.[ProductID] = i1.[ProductID]
-	Inner Join [dbo].[Categories] as c1
+	Inner Join vCategories as c1
 		On p1.[CategoryID] = c1.[CategoryID]
-	Inner Join [dbo].[Employees] as e1
+	Inner Join vEmployees as e1
 		On i1.[EmployeeID] = e1.[EmployeeID]
-	Inner Join [dbo].[Employees] as m1
+	Inner Join vEmployees as m1
 		On e1.[ManagerID] = m1.[EmployeeID]
 	Order By 2,4,6,10; ------------------------------------ 231 raws
 go
