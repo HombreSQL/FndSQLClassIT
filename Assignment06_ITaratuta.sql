@@ -518,10 +518,10 @@ As
 		,[Employee]
 		,[Manager]
 	From [dbo].[Products] as p1
-	Inner Join [dbo].[Categories] as c1
-		On p1.[CategoryID] = c1.[CategoryID]
 	Inner Join [dbo].[Inventories] as i1
 		On p1.[ProductID] = i1.[ProductID]
+	Inner Join [dbo].[Categories] as c1
+		On p1.[CategoryID] = c1.[CategoryID]
 	Inner Join [dbo].[Employees] as e1
 		On i1.[EmployeeID] = e1.[EmployeeID]
 	Inner Join [dbo].[Employees] as m1
