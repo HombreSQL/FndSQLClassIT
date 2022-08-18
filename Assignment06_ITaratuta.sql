@@ -503,7 +503,7 @@ go
 
 Create Or Alter
 View vInventoriesByProductsByCategoriesByEmployees
-With Schemabinding
+-- With Schemabinding -- <<Cannot use with views that reference self
 As
 	Select Top 1000000000
 	c1.[CategoryID]
